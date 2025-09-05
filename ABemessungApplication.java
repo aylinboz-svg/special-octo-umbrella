@@ -1508,6 +1508,11 @@ public class ABemessungApplication extends JFrame implements ActionListener {
         
         // Force complete UI refresh with SwingUtilities
         javax.swing.SwingUtilities.invokeLater(() -> {
+            // Revalidate the parent containers as well
+            if (this.sectionPanel.getParent() != null) {
+                this.sectionPanel.getParent().revalidate();
+                this.sectionPanel.getParent().repaint();
+            }
             this.revalidate();
             this.repaint();
         });
