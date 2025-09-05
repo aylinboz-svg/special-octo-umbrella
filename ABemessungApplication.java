@@ -1914,25 +1914,8 @@ public class ABemessungApplication extends JFrame implements ActionListener {
     	
     	 this.viewerPanel.removeAllObjects3D();
     	 
-    	 grafik.moveTo(0, 0);
-    	 
-    	 // Center the view by moving the camera instead of objects
     	 double centerOffset = grafik.getCenterOffset();
-    	 // Try different camera positioning methods
-    	 try {
-    		 this.viewerPanel.setCameraPosition(-centerOffset, 0, 5);
-    	 } catch (Exception e1) {
-    		 try {
-    			 this.viewerPanel.setViewCenter(centerOffset, 0, 0);
-    		 } catch (Exception e2) {
-    			 try {
-    				 this.viewerPanel.lookAt(centerOffset, 0, 0);
-    			 } catch (Exception e3) {
-    				 // Fall back to object movement if camera methods don't exist
-    				 grafik.moveTo(centerOffset, 0);
-    			 }
-    		 }
-    	 }
+    	 grafik.moveTo(centerOffset, 0);
     	 grafik.drawVerglasung(this.viewerPanel);
     	 grafik.drawD1(this.viewerPanel);
     	 grafik.drawD2(this.viewerPanel);

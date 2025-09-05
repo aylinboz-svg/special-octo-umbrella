@@ -57,7 +57,7 @@ public class LGraphics {
 	    double textW   = text.length() * 0.72 * h; 
 	    double x       = xCenter - textW/2;          
 
-	    vp.addObject3D(new Text(x, -0.026, 0.001, h, text));
+	    vp.addObject3D(new Text(x + this.x, -0.026 + this.y, 0.001, h, text));
 	}
 	
 	public void draw1(ViewerPanel vp) {
@@ -75,7 +75,7 @@ public class LGraphics {
 	    double xShift  = 0.005;
 	    double yShift  = -0.002;
 
-	    vp.addObject3D(new Text(x + xShift, -0.026 + yShift, 0.001, h, text));
+	    vp.addObject3D(new Text(x + xShift + this.x, -0.026 + yShift + this.y, 0.001, h, text));
 	}
 
 	public void drawDSzr1(ViewerPanel vp) {
@@ -90,7 +90,7 @@ public class LGraphics {
 		double textW = text.length() * 0.72 * h; 
 		double x = xCenter - textW / 2;
 
-		vp.addObject3D(new Text(x, -0.026, 0.001, h, text));
+		vp.addObject3D(new Text(x + this.x, -0.026 + this.y, 0.001, h, text));
 	}
 
 	public void draw2(ViewerPanel vp) {
@@ -107,7 +107,7 @@ public class LGraphics {
 	    double xShift  = 0.009;   
 	    double yShift  = -0.002; 
 	    
-	    vp.addObject3D(new Text(x + xShift, -0.026 + yShift, 0.001, h, text));
+	    vp.addObject3D(new Text(x + xShift + this.x, -0.026 + yShift + this.y, 0.001, h, text));
 	}
 	   
 	public void drawD2(ViewerPanel vp) {
@@ -123,7 +123,7 @@ public class LGraphics {
 	    double textW   = text.length() * 0.72 * h;
 	    double x       = xCenter - textW/2;
 
-	    vp.addObject3D(new Text(x, -0.026, 0.001, h, text));	
+	    vp.addObject3D(new Text(x + this.x, -0.026 + this.y, 0.001, h, text));
 	}
 
 	public void draw3(ViewerPanel vp) {
@@ -141,7 +141,7 @@ public class LGraphics {
 	    double xShift  = 0.005;  
 	    double yShift  = -0.002;
 
-	    vp.addObject3D(new Text(x + xShift, -0.026 + yShift, 0.001, h, text));
+	    vp.addObject3D(new Text(x + xShift + this.x, -0.026 + yShift + this.y, 0.001, h, text));
 	}
 	
 	public void drawDSzr2(ViewerPanel vp) {
@@ -159,7 +159,7 @@ public class LGraphics {
 	    double textW   = text.length() * 0.72 * h; 
 	    double x       = xCenter - textW/2;
 
-	    vp.addObject3D(new Text(x, -0.026, 0.001, h, text));
+	    vp.addObject3D(new Text(x + this.x, -0.026 + this.y, 0.001, h, text));
 	}
 	
 	public void draw4(ViewerPanel vp) {
@@ -179,7 +179,7 @@ public class LGraphics {
 	    double xShift  = 0.009;   
 	    double yShift  = -0.002;  
 	    
-	    vp.addObject3D(new Text(x + xShift, -0.026 + yShift, 0.001, h, text));
+	    vp.addObject3D(new Text(x + xShift + this.x, -0.026 + yShift + this.y, 0.001, h, text));
 	}
 
 	public void drawD3(ViewerPanel vp) {
@@ -198,7 +198,7 @@ public class LGraphics {
 	    double textW   = text.length() * 0.72 * h;  
 	    double x       = xCenter - textW/2;
 
-	    vp.addObject3D(new Text(x, -0.026, 0.001, h, text));
+	    vp.addObject3D(new Text(x + this.x, -0.026 + this.y, 0.001, h, text));
 	}
 	
 	public void draw5(ViewerPanel vp) {
@@ -219,6 +219,6 @@ public class LGraphics {
 		 double xShift  = 0.005; 
 		 double yShift  = -0.002; 
 		 
-		 vp.addObject3D(new Text(x + xShift, -0.026 + yShift, 0.001, h, text));
+		 vp.addObject3D(new Text(x + xShift + this.x, -0.026 + yShift + this.y, 0.001, h, text));
 	}
 }
