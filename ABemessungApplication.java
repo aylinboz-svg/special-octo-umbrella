@@ -1465,32 +1465,129 @@ public class ABemessungApplication extends JFrame implements ActionListener {
                 System.out.println("ERROR adding teil5Container: " + e.getMessage());
                 e.printStackTrace();
             }
-            if (!leeresPanel.isAncestorOf(teil3)) {
-                leeresPanel.add(teil3);
+            try {
+                System.out.println("Checking leeresPanel.isAncestorOf(teil3)...");
+                if (!leeresPanel.isAncestorOf(teil3)) {
+                    System.out.println("Adding teil3 to leeresPanel...");
+                    leeresPanel.add(teil3);
+                    System.out.println("Added teil3 successfully");
+                } else {
+                    System.out.println("teil3 already in leeresPanel");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with teil3: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!ausgabePanel2.isAncestorOf(gztPanel3)) {
-                ausgabePanel2.add(gztPanel3, 2);
+            
+            try {
+                System.out.println("Checking ausgabePanel2.isAncestorOf(gztPanel3)...");
+                if (!ausgabePanel2.isAncestorOf(gztPanel3)) {
+                    System.out.println("Adding gztPanel3 to ausgabePanel2...");
+                    ausgabePanel2.add(gztPanel3, 2);
+                    System.out.println("Added gztPanel3 successfully");
+                } else {
+                    System.out.println("gztPanel3 already in ausgabePanel2");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with gztPanel3: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!ausgabePanel2.isAncestorOf(gztPanel6)) {
-                ausgabePanel2.add(gztPanel6, 5);
+            
+            try {
+                System.out.println("Checking ausgabePanel2.isAncestorOf(gztPanel6)...");
+                if (!ausgabePanel2.isAncestorOf(gztPanel6)) {
+                    System.out.println("Adding gztPanel6 to ausgabePanel2...");
+                    ausgabePanel2.add(gztPanel6, 5);
+                    System.out.println("Added gztPanel6 successfully");
+                } else {
+                    System.out.println("gztPanel6 already in ausgabePanel2");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with gztPanel6: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!inneresPanel.isAncestorOf(panelInnen)) {
-                inneresPanel.add(panelInnen, 2);
+            try {
+                System.out.println("Checking inneresPanel.isAncestorOf(panelInnen)...");
+                if (!inneresPanel.isAncestorOf(panelInnen)) {
+                    System.out.println("Adding panelInnen to inneresPanel...");
+                    inneresPanel.add(panelInnen, 2);
+                    System.out.println("Added panelInnen successfully");
+                } else {
+                    System.out.println("panelInnen already in inneresPanel");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with panelInnen: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!nachweisGztPanel.isAncestorOf(panelInnenNachweis)) {
-                nachweisGztPanel.add(panelInnenNachweis, 2);
+            
+            try {
+                System.out.println("Checking nachweisGztPanel.isAncestorOf(panelInnenNachweis)...");
+                if (!nachweisGztPanel.isAncestorOf(panelInnenNachweis)) {
+                    System.out.println("Adding panelInnenNachweis to nachweisGztPanel...");
+                    nachweisGztPanel.add(panelInnenNachweis, 2);
+                    System.out.println("Added panelInnenNachweis successfully");
+                } else {
+                    System.out.println("panelInnenNachweis already in nachweisGztPanel");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with panelInnenNachweis: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!ausgabePanelGZG.isAncestorOf(gzgPanel3)) {
-                ausgabePanelGZG.add(gzgPanel3, 2);
+            
+            try {
+                System.out.println("Checking ausgabePanelGZG.isAncestorOf(gzgPanel3)...");
+                if (!ausgabePanelGZG.isAncestorOf(gzgPanel3)) {
+                    System.out.println("Adding gzgPanel3 to ausgabePanelGZG...");
+                    ausgabePanelGZG.add(gzgPanel3, 2);
+                    System.out.println("Added gzgPanel3 to ausgabePanelGZG successfully");
+                } else {
+                    System.out.println("gzgPanel3 already in ausgabePanelGZG");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with gzgPanel3 in ausgabePanelGZG: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!ausgabePanelGZG.isAncestorOf(gzgPanel6)) {
-                ausgabePanelGZG.add(gzgPanel6, 5);
+            
+            try {
+                System.out.println("Checking ausgabePanelGZG.isAncestorOf(gzgPanel6)...");
+                if (!ausgabePanelGZG.isAncestorOf(gzgPanel6)) {
+                    System.out.println("Adding gzgPanel6 to ausgabePanelGZG...");
+                    ausgabePanelGZG.add(gzgPanel6, 5);
+                    System.out.println("Added gzgPanel6 to ausgabePanelGZG successfully");
+                } else {
+                    System.out.println("gzgPanel6 already in ausgabePanelGZG");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with gzgPanel6 in ausgabePanelGZG: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)) {
-                gzgNachweisPanel.add(nachweisPanelInnenGZG, 2);
+            
+            try {
+                System.out.println("Checking gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)...");
+                if (!gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)) {
+                    System.out.println("Adding nachweisPanelInnenGZG to gzgNachweisPanel...");
+                    gzgNachweisPanel.add(nachweisPanelInnenGZG, 2);
+                    System.out.println("Added nachweisPanelInnenGZG successfully");
+                } else {
+                    System.out.println("nachweisPanelInnenGZG already in gzgNachweisPanel");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with nachweisPanelInnenGZG: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)) {
-                nachweisGzgPanel.add(panelInnenNachweisGzg, 2);
+            
+            try {
+                System.out.println("Checking nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)...");
+                if (!nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)) {
+                    System.out.println("Adding panelInnenNachweisGzg to nachweisGzgPanel...");
+                    nachweisGzgPanel.add(panelInnenNachweisGzg, 2);
+                    System.out.println("Added panelInnenNachweisGzg successfully");
+                } else {
+                    System.out.println("panelInnenNachweisGzg already in nachweisGzgPanel");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with panelInnenNachweisGzg: " + e.getMessage());
+                e.printStackTrace();
             }
 
         } else {
