@@ -1493,6 +1493,11 @@ public class ABemessungApplication extends JFrame implements ActionListener {
 
         // Add the new input panel (dropdown stays in place)
         this.mehrscheibenIsolierverglasungPanel.setVisible(true);
+        
+        // Ensure proper size and layout
+        this.mehrscheibenIsolierverglasungPanel.setPreferredSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
+        this.mehrscheibenIsolierverglasungPanel.setMinimumSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
+        
         this.sectionPanel.add(this.mehrscheibenIsolierverglasungPanel, BorderLayout.CENTER);
         
         // Force immediate validation and repaint
