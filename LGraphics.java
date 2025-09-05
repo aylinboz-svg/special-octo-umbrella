@@ -10,6 +10,22 @@ public class LGraphics {
 	public LGraphics(DMehrscheibenIsolierverglasung section,BBemessung bemessung) {
 		this.section = section;
 	}
+	
+	public double getCenterOffset() {
+		double[][][] lines = this.section.getVerticalLines();
+		if (lines.length == 0) return 0;
+		
+		double minX = Double.MAX_VALUE;
+		double maxX = Double.MIN_VALUE;
+		
+		for (double[][] line : lines) {
+			double x = line[0][0];
+			if (x < minX) minX = x;
+			if (x > maxX) maxX = x;
+		}
+		
+		return -(minX + maxX) / 2;
+	}
 
 	public void moveTo(double x, double y) {
 		this.x = x;

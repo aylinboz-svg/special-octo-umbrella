@@ -1913,7 +1913,8 @@ public class ABemessungApplication extends JFrame implements ActionListener {
     	
     	 this.viewerPanel.removeAllObjects3D();
     	 
-    	 grafik.moveTo(0, 0);
+    	 double centerOffset = grafik.getCenterOffset();
+    	 grafik.moveTo(centerOffset, 0);
     	 grafik.drawVerglasung(this.viewerPanel);
     	 grafik.drawD1(this.viewerPanel);
     	 grafik.drawD2(this.viewerPanel);
