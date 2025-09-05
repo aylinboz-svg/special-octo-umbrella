@@ -132,9 +132,10 @@ public class LGraphics {
 
 	    double d2 = section.getD2();
 	    double SZR1 = section.getDSZR1();
-		double x3 =((SZR1/2))*7;
+	    double x3 =((SZR1/2))*7;
 	    double x4 =((SZR1/2)+d2)*7;
-	    double h = 0.004;double xCenter = 0.5 * (x3 + x4) + 0.001;
+	    double h = 0.004;
+	    double xCenter = 0.5 * (x3 + x4) + 0.001;
 	    double textW   = text.length() * 0.72 * h;
 	    double x       = xCenter - textW / 2;
 	    double xShift  = 0.005;  

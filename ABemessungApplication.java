@@ -1925,7 +1925,9 @@ public class ABemessungApplication extends JFrame implements ActionListener {
     	 grafik.draw2(this.viewerPanel);
     	 grafik.draw3(this.viewerPanel);
     	 grafik.draw4(this.viewerPanel);
-    	 grafik.draw5(this.viewerPanel);
+    	 if (verglasung instanceof GDreifachIsolierverglasung) {
+    		 grafik.draw5(this.viewerPanel);
+    	 }
     	 
     	 this.viewerPanel.render();
      
