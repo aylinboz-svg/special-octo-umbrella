@@ -1424,17 +1424,46 @@ public class ABemessungApplication extends JFrame implements ActionListener {
     }
     
     private void setSectionPanel(Object st) {
+        System.out.println("=== setSectionPanel START ===");
+        System.out.println("Selected item: " + st);
+        System.out.println("Current panel: " + (this.mehrscheibenIsolierverglasungPanel != null ? this.mehrscheibenIsolierverglasungPanel.getClass().getSimpleName() : "null"));
+        
         // Only remove the input panel, keep the dropdown
         if (this.mehrscheibenIsolierverglasungPanel != null) {
-            this.sectionPanel.remove(this.mehrscheibenIsolierverglasungPanel);
-            this.mehrscheibenIsolierverglasungPanel = null; // Clear reference
+            System.out.println("Removing current panel...");
+            try {
+                this.sectionPanel.remove(this.mehrscheibenIsolierverglasungPanel);
+                System.out.println("Panel removed successfully");
+                this.mehrscheibenIsolierverglasungPanel = null; // Clear reference
+                System.out.println("Reference cleared");
+            } catch (Exception e) {
+                System.out.println("ERROR removing panel: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("No current panel to remove");
         }
 
         if (st.equals("DreifachIsolierverglasung")) {
-            this.mehrscheibenIsolierverglasungPanel = new FDreifachIsolierverglasungPanel();
+            System.out.println("Creating 3-fach panel...");
+            try {
+                this.mehrscheibenIsolierverglasungPanel = new FDreifachIsolierverglasungPanel();
+                System.out.println("3-fach panel created successfully");
+            } catch (Exception e) {
+                System.out.println("ERROR creating 3-fach panel: " + e.getMessage());
+                e.printStackTrace();
+                return;
+            }
 
-            if (!berechneteWertePanel1.isAncestorOf(teil5Container)) {
-                berechneteWertePanel1.add(teil5Container);
+            System.out.println("Adding 3-fach specific components...");
+            try {
+                if (!berechneteWertePanel1.isAncestorOf(teil5Container)) {
+                    berechneteWertePanel1.add(teil5Container);
+                    System.out.println("Added teil5Container");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR adding teil5Container: " + e.getMessage());
+                e.printStackTrace();
             }
             if (!leeresPanel.isAncestorOf(teil3)) {
                 leeresPanel.add(teil3);
@@ -1465,7 +1494,17 @@ public class ABemessungApplication extends JFrame implements ActionListener {
             }
 
         } else {
-            this.mehrscheibenIsolierverglasungPanel = new HZweifachIsolierverglasungPanel(); // ❗ dein Zweifach-Panel
+            System.out.println("Creating 2-fach panel...");
+            try {
+                this.mehrscheibenIsolierverglasungPanel = new HZweifachIsolierverglasungPanel();
+                System.out.println("2-fach panel created successfully");
+            } catch (Exception e) {
+                System.out.println("ERROR creating 2-fach panel: " + e.getMessage());
+                e.printStackTrace();
+                return;
+            }
+            
+            System.out.println("Removing 2-fach specific components...");
 
             berechneteWertePanel1.remove(teil5Container);
             leeresPanel.remove(teil3);
@@ -1492,31 +1531,58 @@ public class ABemessungApplication extends JFrame implements ActionListener {
         }
 
         // Add the new input panel (dropdown stays in place)
-        this.mehrscheibenIsolierverglasungPanel.setVisible(true);
-        
-        // Ensure proper size and layout
-        this.mehrscheibenIsolierverglasungPanel.setPreferredSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
-        this.mehrscheibenIsolierverglasungPanel.setMinimumSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
-        
-        this.sectionPanel.add(this.mehrscheibenIsolierverglasungPanel, BorderLayout.CENTER);
+        System.out.println("Adding new panel to sectionPanel...");
+        try {
+            this.mehrscheibenIsolierverglasungPanel.setVisible(true);
+            System.out.println("Panel set to visible");
+            
+            // Ensure proper size and layout
+            this.mehrscheibenIsolierverglasungPanel.setPreferredSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
+            this.mehrscheibenIsolierverglasungPanel.setMinimumSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
+            System.out.println("Panel sizes set");
+            
+            this.sectionPanel.add(this.mehrscheibenIsolierverglasungPanel, BorderLayout.CENTER);
+            System.out.println("Panel added to sectionPanel");
+        } catch (Exception e) {
+            System.out.println("ERROR adding panel to sectionPanel: " + e.getMessage());
+            e.printStackTrace();
+        }
         
         // Force immediate validation and repaint
-        this.mehrscheibenIsolierverglasungPanel.revalidate();
-        this.mehrscheibenIsolierverglasungPanel.repaint();
-        this.sectionPanel.revalidate();
-        this.sectionPanel.repaint();
-        
-        // Force complete UI refresh with SwingUtilities
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            // Revalidate the parent containers as well
-            if (this.sectionPanel.getParent() != null) {
-                this.sectionPanel.getParent().revalidate();
-                this.sectionPanel.getParent().repaint();
-            }
-            this.revalidate();
-            this.repaint();
-        });
+        System.out.println("Starting revalidation process...");
+        try {
+            this.mehrscheibenIsolierverglasungPanel.revalidate();
+            this.mehrscheibenIsolierverglasungPanel.repaint();
+            System.out.println("Panel revalidated");
+            
+            this.sectionPanel.revalidate();
+            this.sectionPanel.repaint();
+            System.out.println("SectionPanel revalidated");
+            
+            // Force complete UI refresh with SwingUtilities
+            javax.swing.SwingUtilities.invokeLater(() -> {
+                System.out.println("Running SwingUtilities.invokeLater...");
+                try {
+                    // Revalidate the parent containers as well
+                    if (this.sectionPanel.getParent() != null) {
+                        this.sectionPanel.getParent().revalidate();
+                        this.sectionPanel.getParent().repaint();
+                        System.out.println("Parent container revalidated");
+                    }
+                    this.revalidate();
+                    this.repaint();
+                    System.out.println("Main window revalidated");
+                } catch (Exception e) {
+                    System.out.println("ERROR in SwingUtilities.invokeLater: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            });
+        } catch (Exception e) {
+            System.out.println("ERROR during revalidation: " + e.getMessage());
+            e.printStackTrace();
+        }
 
+        System.out.println("Revalidating all related panels...");
         berechneteWertePanel1.revalidate(); berechneteWertePanel1.repaint();
         leeresPanel.revalidate(); leeresPanel.repaint();
         ausgabePanel2.revalidate(); ausgabePanel2.repaint();
@@ -1525,6 +1591,7 @@ public class ABemessungApplication extends JFrame implements ActionListener {
         ausgabePanelGZG.revalidate(); ausgabePanelGZG.repaint();
         gzgNachweisPanel.revalidate(); gzgNachweisPanel.repaint();
         nachweisGzgPanel.revalidate(); nachweisGzgPanel.repaint();
+        System.out.println("=== setSectionPanel END ===");
     }
     
     private void apply() {
