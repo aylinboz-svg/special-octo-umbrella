@@ -1456,8 +1456,13 @@ public class ABemessungApplication extends JFrame implements ActionListener {
             if (!ausgabePanelGZG.isAncestorOf(gzgPanel6)) {
                 ausgabePanelGZG.add(gzgPanel6, 5);
             }
-            if (!gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)) {
-                gzgNachweisPanel.add(nachweisPanelInnenGZG, 2);
+            try {
+                if (!gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)) {
+                    gzgNachweisPanel.add(nachweisPanelInnenGZG, 2);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with nachweisPanelInnenGZG: " + e.getMessage());
+                e.printStackTrace();
             }
             try {
                 if (!nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)) {
