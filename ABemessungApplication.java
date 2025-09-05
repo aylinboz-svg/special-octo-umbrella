@@ -1424,9 +1424,8 @@ public class ABemessungApplication extends JFrame implements ActionListener {
     }
     
     private void setSectionPanel(Object st) {
-        if (this.mehrscheibenIsolierverglasungPanel != null) {
-            this.sectionPanel.remove(this.mehrscheibenIsolierverglasungPanel);
-        }
+        // Clear the entire section panel first
+        this.sectionPanel.removeAll();
 
         if (st.equals("DreifachIsolierverglasung")) {
             this.mehrscheibenIsolierverglasungPanel = new FDreifachIsolierverglasungPanel();
@@ -1489,9 +1488,17 @@ public class ABemessungApplication extends JFrame implements ActionListener {
             nachweisGzgPanel.remove(panelInnenNachweisGzg);
         }
 
+        // Re-add dropdown and input panel
+        this.sectionPanel.add(this.MehrscheibenIsolierverglasung, BorderLayout.NORTH);
+        this.mehrscheibenIsolierverglasungPanel.setVisible(true);
         this.sectionPanel.add(this.mehrscheibenIsolierverglasungPanel, BorderLayout.CENTER);
+        
         this.sectionPanel.revalidate();
         this.sectionPanel.repaint();
+        
+        // Force complete UI refresh
+        this.revalidate();
+        this.repaint();
 
         berechneteWertePanel1.revalidate(); berechneteWertePanel1.repaint();
         leeresPanel.revalidate(); leeresPanel.repaint();
