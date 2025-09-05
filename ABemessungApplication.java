@@ -1577,13 +1577,23 @@ public class ABemessungApplication extends JFrame implements ActionListener {
             }
             
             try {
-                System.out.println("Checking nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)...");
-                if (!nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)) {
-                    System.out.println("Adding panelInnenNachweisGzg to nachweisGzgPanel...");
-                    nachweisGzgPanel.add(panelInnenNachweisGzg, 2);
-                    System.out.println("Added panelInnenNachweisGzg successfully");
+                System.out.println("Checking panelInnenNachweisGzg and nachweisGzgPanel for null...");
+                System.out.println("panelInnenNachweisGzg is null: " + (panelInnenNachweisGzg == null));
+                System.out.println("nachweisGzgPanel is null: " + (nachweisGzgPanel == null));
+                
+                if (panelInnenNachweisGzg == null) {
+                    System.out.println("ERROR: panelInnenNachweisGzg is null - skipping this step");
+                } else if (nachweisGzgPanel == null) {
+                    System.out.println("ERROR: nachweisGzgPanel is null - skipping this step");
                 } else {
-                    System.out.println("panelInnenNachweisGzg already in nachweisGzgPanel");
+                    System.out.println("Checking nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)...");
+                    if (!nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)) {
+                        System.out.println("Adding panelInnenNachweisGzg to nachweisGzgPanel...");
+                        nachweisGzgPanel.add(panelInnenNachweisGzg, 2);
+                        System.out.println("Added panelInnenNachweisGzg successfully");
+                    } else {
+                        System.out.println("panelInnenNachweisGzg already in nachweisGzgPanel");
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("ERROR with panelInnenNachweisGzg: " + e.getMessage());
