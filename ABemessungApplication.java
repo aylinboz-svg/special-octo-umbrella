@@ -1432,30 +1432,78 @@ public class ABemessungApplication extends JFrame implements ActionListener {
         if (st.equals("DreifachIsolierverglasung")) {
             this.mehrscheibenIsolierverglasungPanel = new FDreifachIsolierverglasungPanel();
 
-            if (!berechneteWertePanel1.isAncestorOf(teil5Container)) {
-                berechneteWertePanel1.add(teil5Container);
+            try {
+                if (!berechneteWertePanel1.isAncestorOf(teil5Container)) {
+                    berechneteWertePanel1.add(teil5Container);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with teil5Container: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!leeresPanel.isAncestorOf(teil3)) {
-                leeresPanel.add(teil3);
+            
+            try {
+                if (!leeresPanel.isAncestorOf(teil3)) {
+                    leeresPanel.add(teil3);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with teil3: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!ausgabePanel2.isAncestorOf(gztPanel3)) {
-                ausgabePanel2.add(gztPanel3, 2);
+            
+            try {
+                if (!ausgabePanel2.isAncestorOf(gztPanel3)) {
+                    ausgabePanel2.add(gztPanel3, 2);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with gztPanel3: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!ausgabePanel2.isAncestorOf(gztPanel6)) {
-                ausgabePanel2.add(gztPanel6, 5);
+            
+            try {
+                if (!ausgabePanel2.isAncestorOf(gztPanel6)) {
+                    ausgabePanel2.add(gztPanel6, 5);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with gztPanel6: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!inneresPanel.isAncestorOf(panelInnen)) {
-                inneresPanel.add(panelInnen, 2);
+            
+            try {
+                if (!inneresPanel.isAncestorOf(panelInnen)) {
+                    inneresPanel.add(panelInnen, 2);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with panelInnen: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!nachweisGztPanel.isAncestorOf(panelInnenNachweis)) {
-                nachweisGztPanel.add(panelInnenNachweis, 2);
+            
+            try {
+                if (!nachweisGztPanel.isAncestorOf(panelInnenNachweis)) {
+                    nachweisGztPanel.add(panelInnenNachweis, 2);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with panelInnenNachweis: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!ausgabePanelGZG.isAncestorOf(gzgPanel3)) {
-                ausgabePanelGZG.add(gzgPanel3, 2);
+            
+            try {
+                if (!ausgabePanelGZG.isAncestorOf(gzgPanel3)) {
+                    ausgabePanelGZG.add(gzgPanel3, 2);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with gzgPanel3 in ausgabePanelGZG: " + e.getMessage());
+                e.printStackTrace();
             }
-            if (!ausgabePanelGZG.isAncestorOf(gzgPanel6)) {
-                ausgabePanelGZG.add(gzgPanel6, 5);
+            
+            try {
+                if (!ausgabePanelGZG.isAncestorOf(gzgPanel6)) {
+                    ausgabePanelGZG.add(gzgPanel6, 5);
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR with gzgPanel6 in ausgabePanelGZG: " + e.getMessage());
+                e.printStackTrace();
             }
+            
             try {
                 if (!gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)) {
                     gzgNachweisPanel.add(nachweisPanelInnenGZG, 2);
@@ -1464,6 +1512,7 @@ public class ABemessungApplication extends JFrame implements ActionListener {
                 System.out.println("ERROR with nachweisPanelInnenGZG: " + e.getMessage());
                 e.printStackTrace();
             }
+            
             try {
                 if (!nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)) {
                     nachweisGzgPanel.add(panelInnenNachweisGzg, 2);
