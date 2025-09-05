@@ -1424,176 +1424,44 @@ public class ABemessungApplication extends JFrame implements ActionListener {
     }
     
     private void setSectionPanel(Object st) {
-        System.out.println("=== setSectionPanel START ===");
-        System.out.println("Selected item: " + st);
-        System.out.println("Current panel: " + (this.mehrscheibenIsolierverglasungPanel != null ? this.mehrscheibenIsolierverglasungPanel.getClass().getSimpleName() : "null"));
-        
-        // Only remove the input panel, keep the dropdown
         if (this.mehrscheibenIsolierverglasungPanel != null) {
-            System.out.println("Removing current panel...");
-            try {
-                this.sectionPanel.remove(this.mehrscheibenIsolierverglasungPanel);
-                System.out.println("Panel removed successfully");
-                this.mehrscheibenIsolierverglasungPanel = null; // Clear reference
-                System.out.println("Reference cleared");
-            } catch (Exception e) {
-                System.out.println("ERROR removing panel: " + e.getMessage());
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("No current panel to remove");
+            this.sectionPanel.remove(this.mehrscheibenIsolierverglasungPanel);
+            this.mehrscheibenIsolierverglasungPanel = null;
         }
 
         if (st.equals("DreifachIsolierverglasung")) {
-            System.out.println("Creating 3-fach panel...");
-            try {
-                this.mehrscheibenIsolierverglasungPanel = new FDreifachIsolierverglasungPanel();
-                System.out.println("3-fach panel created successfully");
-            } catch (Exception e) {
-                System.out.println("ERROR creating 3-fach panel: " + e.getMessage());
-                e.printStackTrace();
-                return;
-            }
+            this.mehrscheibenIsolierverglasungPanel = new FDreifachIsolierverglasungPanel();
 
-            System.out.println("Adding 3-fach specific components...");
-            try {
-                if (!berechneteWertePanel1.isAncestorOf(teil5Container)) {
-                    berechneteWertePanel1.add(teil5Container);
-                    System.out.println("Added teil5Container");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR adding teil5Container: " + e.getMessage());
-                e.printStackTrace();
+            if (!berechneteWertePanel1.isAncestorOf(teil5Container)) {
+                berechneteWertePanel1.add(teil5Container);
+            }
+            if (!leeresPanel.isAncestorOf(teil3)) {
+                leeresPanel.add(teil3);
+            }
+            if (!ausgabePanel2.isAncestorOf(gztPanel3)) {
+                ausgabePanel2.add(gztPanel3, 2);
+            }
+            if (!ausgabePanel2.isAncestorOf(gztPanel6)) {
+                ausgabePanel2.add(gztPanel6, 5);
+            }
+            if (!inneresPanel.isAncestorOf(panelInnen)) {
+                inneresPanel.add(panelInnen, 2);
+            }
+            if (!nachweisGztPanel.isAncestorOf(panelInnenNachweis)) {
+                nachweisGztPanel.add(panelInnenNachweis, 2);
+            }
+            if (!ausgabePanelGZG.isAncestorOf(gzgPanel3)) {
+                ausgabePanelGZG.add(gzgPanel3, 2);
+            }
+            if (!ausgabePanelGZG.isAncestorOf(gzgPanel6)) {
+                ausgabePanelGZG.add(gzgPanel6, 5);
+            }
+            if (!gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)) {
+                gzgNachweisPanel.add(nachweisPanelInnenGZG, 2);
             }
             try {
-                System.out.println("Checking leeresPanel.isAncestorOf(teil3)...");
-                if (!leeresPanel.isAncestorOf(teil3)) {
-                    System.out.println("Adding teil3 to leeresPanel...");
-                    leeresPanel.add(teil3);
-                    System.out.println("Added teil3 successfully");
-                } else {
-                    System.out.println("teil3 already in leeresPanel");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR with teil3: " + e.getMessage());
-                e.printStackTrace();
-            }
-            
-            try {
-                System.out.println("Checking ausgabePanel2.isAncestorOf(gztPanel3)...");
-                if (!ausgabePanel2.isAncestorOf(gztPanel3)) {
-                    System.out.println("Adding gztPanel3 to ausgabePanel2...");
-                    ausgabePanel2.add(gztPanel3, 2);
-                    System.out.println("Added gztPanel3 successfully");
-                } else {
-                    System.out.println("gztPanel3 already in ausgabePanel2");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR with gztPanel3: " + e.getMessage());
-                e.printStackTrace();
-            }
-            
-            try {
-                System.out.println("Checking ausgabePanel2.isAncestorOf(gztPanel6)...");
-                if (!ausgabePanel2.isAncestorOf(gztPanel6)) {
-                    System.out.println("Adding gztPanel6 to ausgabePanel2...");
-                    ausgabePanel2.add(gztPanel6, 5);
-                    System.out.println("Added gztPanel6 successfully");
-                } else {
-                    System.out.println("gztPanel6 already in ausgabePanel2");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR with gztPanel6: " + e.getMessage());
-                e.printStackTrace();
-            }
-            try {
-                System.out.println("Checking inneresPanel.isAncestorOf(panelInnen)...");
-                if (!inneresPanel.isAncestorOf(panelInnen)) {
-                    System.out.println("Adding panelInnen to inneresPanel...");
-                    inneresPanel.add(panelInnen, 2);
-                    System.out.println("Added panelInnen successfully");
-                } else {
-                    System.out.println("panelInnen already in inneresPanel");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR with panelInnen: " + e.getMessage());
-                e.printStackTrace();
-            }
-            
-            try {
-                System.out.println("Checking nachweisGztPanel.isAncestorOf(panelInnenNachweis)...");
-                if (!nachweisGztPanel.isAncestorOf(panelInnenNachweis)) {
-                    System.out.println("Adding panelInnenNachweis to nachweisGztPanel...");
-                    nachweisGztPanel.add(panelInnenNachweis, 2);
-                    System.out.println("Added panelInnenNachweis successfully");
-                } else {
-                    System.out.println("panelInnenNachweis already in nachweisGztPanel");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR with panelInnenNachweis: " + e.getMessage());
-                e.printStackTrace();
-            }
-            
-            try {
-                System.out.println("Checking ausgabePanelGZG.isAncestorOf(gzgPanel3)...");
-                if (!ausgabePanelGZG.isAncestorOf(gzgPanel3)) {
-                    System.out.println("Adding gzgPanel3 to ausgabePanelGZG...");
-                    ausgabePanelGZG.add(gzgPanel3, 2);
-                    System.out.println("Added gzgPanel3 to ausgabePanelGZG successfully");
-                } else {
-                    System.out.println("gzgPanel3 already in ausgabePanelGZG");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR with gzgPanel3 in ausgabePanelGZG: " + e.getMessage());
-                e.printStackTrace();
-            }
-            
-            try {
-                System.out.println("Checking ausgabePanelGZG.isAncestorOf(gzgPanel6)...");
-                if (!ausgabePanelGZG.isAncestorOf(gzgPanel6)) {
-                    System.out.println("Adding gzgPanel6 to ausgabePanelGZG...");
-                    ausgabePanelGZG.add(gzgPanel6, 5);
-                    System.out.println("Added gzgPanel6 to ausgabePanelGZG successfully");
-                } else {
-                    System.out.println("gzgPanel6 already in ausgabePanelGZG");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR with gzgPanel6 in ausgabePanelGZG: " + e.getMessage());
-                e.printStackTrace();
-            }
-            
-            try {
-                System.out.println("Checking gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)...");
-                if (!gzgNachweisPanel.isAncestorOf(nachweisPanelInnenGZG)) {
-                    System.out.println("Adding nachweisPanelInnenGZG to gzgNachweisPanel...");
-                    gzgNachweisPanel.add(nachweisPanelInnenGZG, 2);
-                    System.out.println("Added nachweisPanelInnenGZG successfully");
-                } else {
-                    System.out.println("nachweisPanelInnenGZG already in gzgNachweisPanel");
-                }
-            } catch (Exception e) {
-                System.out.println("ERROR with nachweisPanelInnenGZG: " + e.getMessage());
-                e.printStackTrace();
-            }
-            
-            try {
-                System.out.println("Checking panelInnenNachweisGzg and nachweisGzgPanel for null...");
-                System.out.println("panelInnenNachweisGzg is null: " + (panelInnenNachweisGzg == null));
-                System.out.println("nachweisGzgPanel is null: " + (nachweisGzgPanel == null));
-                
-                if (panelInnenNachweisGzg == null) {
-                    System.out.println("ERROR: panelInnenNachweisGzg is null - skipping this step");
-                } else if (nachweisGzgPanel == null) {
-                    System.out.println("ERROR: nachweisGzgPanel is null - skipping this step");
-                } else {
-                    System.out.println("Checking nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)...");
-                    if (!nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)) {
-                        System.out.println("Adding panelInnenNachweisGzg to nachweisGzgPanel...");
-                        nachweisGzgPanel.add(panelInnenNachweisGzg, 2);
-                        System.out.println("Added panelInnenNachweisGzg successfully");
-                    } else {
-                        System.out.println("panelInnenNachweisGzg already in nachweisGzgPanel");
-                    }
+                if (!nachweisGzgPanel.isAncestorOf(panelInnenNachweisGzg)) {
+                    nachweisGzgPanel.add(panelInnenNachweisGzg, 2);
                 }
             } catch (Exception e) {
                 System.out.println("ERROR with panelInnenNachweisGzg: " + e.getMessage());
@@ -1601,17 +1469,7 @@ public class ABemessungApplication extends JFrame implements ActionListener {
             }
 
         } else {
-            System.out.println("Creating 2-fach panel...");
-            try {
-                this.mehrscheibenIsolierverglasungPanel = new HZweifachIsolierverglasungPanel();
-                System.out.println("2-fach panel created successfully");
-            } catch (Exception e) {
-                System.out.println("ERROR creating 2-fach panel: " + e.getMessage());
-                e.printStackTrace();
-                return;
-            }
-            
-            System.out.println("Removing 2-fach specific components...");
+            this.mehrscheibenIsolierverglasungPanel = new HZweifachIsolierverglasungPanel();
 
             berechneteWertePanel1.remove(teil5Container);
             leeresPanel.remove(teil3);
@@ -1637,59 +1495,26 @@ public class ABemessungApplication extends JFrame implements ActionListener {
             nachweisGzgPanel.remove(panelInnenNachweisGzg);
         }
 
-        // Add the new input panel (dropdown stays in place)
-        System.out.println("Adding new panel to sectionPanel...");
-        try {
-            this.mehrscheibenIsolierverglasungPanel.setVisible(true);
-            System.out.println("Panel set to visible");
-            
-            // Ensure proper size and layout
-            this.mehrscheibenIsolierverglasungPanel.setPreferredSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
-            this.mehrscheibenIsolierverglasungPanel.setMinimumSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
-            System.out.println("Panel sizes set");
-            
-            this.sectionPanel.add(this.mehrscheibenIsolierverglasungPanel, BorderLayout.CENTER);
-            System.out.println("Panel added to sectionPanel");
-        } catch (Exception e) {
-            System.out.println("ERROR adding panel to sectionPanel: " + e.getMessage());
-            e.printStackTrace();
-        }
+        this.mehrscheibenIsolierverglasungPanel.setVisible(true);
+        this.mehrscheibenIsolierverglasungPanel.setPreferredSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
+        this.mehrscheibenIsolierverglasungPanel.setMinimumSize(this.mehrscheibenIsolierverglasungPanel.getPreferredSize());
         
-        // Force immediate validation and repaint
-        System.out.println("Starting revalidation process...");
-        try {
-            this.mehrscheibenIsolierverglasungPanel.revalidate();
-            this.mehrscheibenIsolierverglasungPanel.repaint();
-            System.out.println("Panel revalidated");
-            
-            this.sectionPanel.revalidate();
-            this.sectionPanel.repaint();
-            System.out.println("SectionPanel revalidated");
-            
-            // Force complete UI refresh with SwingUtilities
-            javax.swing.SwingUtilities.invokeLater(() -> {
-                System.out.println("Running SwingUtilities.invokeLater...");
-                try {
-                    // Revalidate the parent containers as well
-                    if (this.sectionPanel.getParent() != null) {
-                        this.sectionPanel.getParent().revalidate();
-                        this.sectionPanel.getParent().repaint();
-                        System.out.println("Parent container revalidated");
-                    }
-                    this.revalidate();
-                    this.repaint();
-                    System.out.println("Main window revalidated");
-                } catch (Exception e) {
-                    System.out.println("ERROR in SwingUtilities.invokeLater: " + e.getMessage());
-                    e.printStackTrace();
-                }
-            });
-        } catch (Exception e) {
-            System.out.println("ERROR during revalidation: " + e.getMessage());
-            e.printStackTrace();
-        }
+        this.sectionPanel.add(this.mehrscheibenIsolierverglasungPanel, BorderLayout.CENTER);
+        
+        this.mehrscheibenIsolierverglasungPanel.revalidate();
+        this.mehrscheibenIsolierverglasungPanel.repaint();
+        this.sectionPanel.revalidate();
+        this.sectionPanel.repaint();
+        
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            if (this.sectionPanel.getParent() != null) {
+                this.sectionPanel.getParent().revalidate();
+                this.sectionPanel.getParent().repaint();
+            }
+            this.revalidate();
+            this.repaint();
+        });
 
-        System.out.println("Revalidating all related panels...");
         berechneteWertePanel1.revalidate(); berechneteWertePanel1.repaint();
         leeresPanel.revalidate(); leeresPanel.repaint();
         ausgabePanel2.revalidate(); ausgabePanel2.repaint();
@@ -1698,7 +1523,6 @@ public class ABemessungApplication extends JFrame implements ActionListener {
         ausgabePanelGZG.revalidate(); ausgabePanelGZG.repaint();
         gzgNachweisPanel.revalidate(); gzgNachweisPanel.repaint();
         nachweisGzgPanel.revalidate(); nachweisGzgPanel.repaint();
-        System.out.println("=== setSectionPanel END ===");
     }
     
     private void apply() {
