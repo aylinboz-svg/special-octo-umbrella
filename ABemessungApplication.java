@@ -1380,10 +1380,7 @@ public class ABemessungApplication extends JFrame implements ActionListener {
         this.panelInnenNachweisGzg = panelInnenNachweisGzg;
         gztMainPanel.add(nachweisGzgPanel);
         
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.add(this.applyB);
-        buttonPanel.add(this.exitB);
-        southPanelContainer.add(buttonPanel, BorderLayout.SOUTH);
+        southPanelContainer.add(gztMainPanel, BorderLayout.CENTER);
         bottomContent.add(southPanelContainer, BorderLayout.SOUTH);
      
         this.MehrscheibenIsolierverglasung.addActionListener(this);
@@ -1398,11 +1395,15 @@ public class ABemessungApplication extends JFrame implements ActionListener {
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        this.setContentPane(scrollPane);
  
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.add(this.applyB);
+        buttonPanel.add(this.exitB);
+        
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.add(viewerWrapper, BorderLayout.WEST);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
+        mainPanel.add(buttonPanel, BorderLayout.SOUTH);
         
         this.setContentPane(mainPanel);
         this.setSize(900, 600);
@@ -1921,12 +1922,18 @@ public class ABemessungApplication extends JFrame implements ActionListener {
     	 grafik.drawD3(this.viewerPanel);
     	 grafik.drawDSzr2(this.viewerPanel);
     	 grafik.drawDSzr1(this.viewerPanel);
-    	 grafik.draw1(this.viewerPanel);
-    	 grafik.draw2(this.viewerPanel);
-    	 grafik.draw3(this.viewerPanel);
-    	 grafik.draw4(this.viewerPanel);
     	 if (verglasung instanceof GDreifachIsolierverglasung) {
-    		 grafik.draw5(this.viewerPanel);
+    		 // 3-fach: Draw labels 1, 2, 3 under correct panes
+    		 grafik.draw1(this.viewerPanel);  // "1" under first pane (x1-x2)
+    		 grafik.draw2(this.viewerPanel);  // "SZR1" between first and second pane
+    		 grafik.draw3(this.viewerPanel);  // "2" under second pane (x3-x4) 
+    		 grafik.draw4(this.viewerPanel);  // "SZR2" between second and third pane
+    		 grafik.draw5(this.viewerPanel);  // "3" under third pane (x5-x6)
+    	 } else {
+    		 // 2-fach: Draw labels 1, 2 under correct panes
+    		 grafik.draw1(this.viewerPanel);  // "1" under first pane (x1-x2)
+    		 grafik.draw2(this.viewerPanel);  // "SZR1" between first and second pane
+    		 grafik.draw3(this.viewerPanel);  // "2" under second pane (x3-x4)
     	 }
     	 
     	 this.viewerPanel.render();
