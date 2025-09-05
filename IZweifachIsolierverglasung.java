@@ -16,7 +16,7 @@ public class IZweifachIsolierverglasung extends DMehrscheibenIsolierverglasung {
 		double x1 = (-d1-(SZR1/2))*7;
 		double x2 = (-(SZR1/2))*7;
 		double x3 = ((SZR1/2))*7;
-		double x4 = (+d1+(SZR1/2))*7;
+		double x4 = ((SZR1/2)+d2)*7;
 
 	return new double [][][] {
 		{{x1,0},{x1,höhe}},
