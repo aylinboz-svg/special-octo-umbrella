@@ -187,7 +187,7 @@ public class LGraphics {
 	    String text = "d";
 
 	    double d2 = section.getD2();
-	    double d3 = s3.getD2();
+	    double d3 = s3.getD3();
 	    double SZR1 = section.getDSZR1();
 	    double SZR2 = s3.getSZR2();
 		double x5 =((SZR1/2)+d2+SZR2)*7;
@@ -206,7 +206,7 @@ public class LGraphics {
 		 String text = "3";
 		    
 		 double d2 = section.getD2();
-		 double d3 = s3.getD2();
+		 double d3 = s3.getD3();
 		 double SZR1 = section.getDSZR1();
 		 double SZR2 = s3.getSZR2();
 		 double x5 =((SZR1/2)+d2+SZR2)*7;
